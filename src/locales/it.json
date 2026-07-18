@@ -1,0 +1,284 @@
+{
+  "app": {
+    "name": "you better work b*tch!",
+    "copyright": "© you better work b*tch! - TUTTI I DIRITTI RISERVATI - Constanza Botti",
+    "loading": "Caricamento...",
+    "error": "Errore",
+    "success": "Successo",
+    "save": "Salva",
+    "cancel": "Annulla",
+    "delete": "Elimina",
+    "edit": "Modifica",
+    "create": "Crea",
+    "search": "Cerca",
+    "close": "Chiudi",
+    "confirm": "Conferma",
+    "back": "Indietro"
+  },
+  "roles": {
+    "trainer": "Allenatore",
+    "student": "Studente"
+  },
+  "nav": {
+    "dashboard": "Pannello",
+    "routines": "Routine",
+    "wellness": "Benessere",
+    "rewards": "Premi",
+    "guides": "Formazione",
+    "chat": "Chat",
+    "payments": "Pagamenti",
+    "students": "I Miei Studenti",
+    "templates": "Modelli",
+    "profile": "Il Mio Profilo",
+    "logout": "Esci"
+  },
+  "demo": {
+    "mode": "Modalità Demo",
+    "switchTo": "Passa a",
+    "exit": "Esci dalla Demo",
+    "tryDemo": "Prova Demo",
+    "trainer": "Allenatore",
+    "student": "Studente"
+  },
+  "landing": {
+    "hero": {
+      "title": "Trasforma il tuo corpo.",
+      "subtitle": "Supera i tuoi limiti.",
+      "description": "La piattaforma di personal training con gamification. Guadagna punti, sblocca premi e trasforma il tuo corpo.",
+      "cta": "Inizia Ora",
+      "tryDemo": "Prova Demo Gratuita",
+      "ptsPerWorkout": "pts/allenamento",
+      "ptsPerCheckin": "pts/check-in",
+      "motivation": "Motivazione"
+    },
+    "features": {
+      "title": "Caratteristiche",
+      "routines": {
+        "title": "Routine Personalizzate",
+        "description": "Il tuo allenatore crea piani giornalieri con serie, ripetizioni e tempi di riposo su misura."
+      },
+      "rewards": {
+        "title": "Sistema di Premi",
+        "description": "Guadagna punti per ogni allenamento e check-in. Sblocca premi esclusivi."
+      },
+      "wellness": {
+        "title": "Benessere Integrale",
+        "description": "Check-in giornalieri per sonno, stress ed energia che regolano automaticamente la tua intensità."
+      },
+      "gamification": {
+        "title": "Gamification",
+        "description": "Serie, traguardi e premi che ti mantengono motivato giorno dopo giorno."
+      },
+      "education": {
+        "title": "Guide Educative",
+        "description": "Impara su BMI, nutrizione, riscaldamento e tecniche di esercizio."
+      },
+      "trainers": {
+        "title": "Per Allenatori",
+        "description": "Gestisci studenti, riscuoti pagamenti e segui i progressi del tuo team."
+      }
+    },
+    "cta": {
+      "ready": "Pronto a trasformare il tuo corpo?",
+      "join": "Unisciti alla community di atleti che stanno raggiungendo i loro obiettivi con \"you better work b*tch!\"",
+      "button": "Unisciti Ora"
+    }
+  },
+  "dashboard": {
+    "welcome": "Bentornato/a",
+    "welcomeTrainer": "Benvenuto/a, Coach",
+    "todaySession": "Sessione di Oggi",
+    "yourProgress": "I Tuoi Progressi",
+    "totalPoints": "Punti Totali",
+    "nextReward": "Prossimo Premio",
+    "pointsToGo": "pts mancanti",
+    "workoutStreak": "Serie di Allenamenti",
+    "days": "giorni",
+    "manageRoutines": "Gestisci Routine",
+    "myRoutines": "Le Mie Routine",
+    "viewAllRoutines": "Vedi tutte le routine",
+    "myStudents": "I Miei Studenti",
+    "manageStudents": "Gestisci studenti",
+    "educationalGuides": "Guide Educative",
+    "exploreGuides": "Esplora contenuti",
+    "paymentsRewards": "Pagamenti",
+    "rewardsTitle": "Premi",
+    "managePayments": "Gestisci pagamenti",
+    "viewRewards": "Vedi premi"
+  },
+  "alerts": {
+    "critical": "Avvisi Critici",
+    "highStress": "Livello di stress",
+    "inactive": "Inattivo da +72 ore",
+    "motivate": "Motiva"
+  },
+  "leaderboard": {
+    "title": "Classifica",
+    "you": "Tu!",
+    "athlete": "Atleta",
+    "pts": "pts",
+    "compete": "Competi con altri atleti e raggiungi la top 5"
+  },
+  "wellness": {
+    "title": "Check-in Benessere",
+    "subtitle": "Come ti senti oggi?",
+    "sleep": "Qualità del Sonno",
+    "stress": "Livello di Stress",
+    "energy": "Livello di Energia",
+    "levels": {
+      "1": "Molto basso",
+      "2": "Basso",
+      "3": "Normale",
+      "4": "Alto",
+      "5": "Molto alto"
+    },
+    "recommendation": "Intensità Raccomandata",
+    "light": "Leggero",
+    "moderate": "Moderato",
+    "intense": "Intenso",
+    "submit": "Registra Check-in",
+    "completed": "Check-in Completato!",
+    "pointsEarned": "+10 punti guadagnati",
+    "alreadyDone": "Hai già completato il check-in di oggi"
+  },
+  "rewards": {
+    "title": "Premi",
+    "subtitle": "Riscatta i tuoi punti per premi esclusivi",
+    "yourPoints": "I Tuoi Punti",
+    "unlocked": "Sbloccato",
+    "locked": "Bloccato",
+    "claim": "Riscatta",
+    "pointsNeeded": "pts necessari",
+    "history": "Storico Punti",
+    "tier1": {
+      "title": "Guida Snack Salutari",
+      "description": "PDF con 20 ricette di snack fitness"
+    },
+    "tier2": {
+      "title": "Routine AB Premium",
+      "description": "Piano addominali di 4 settimane"
+    },
+    "tier3": {
+      "title": "Sessione 1:1 con il Tuo Trainer",
+      "description": "30 minuti di coaching personalizzato"
+    }
+  },
+  "routines": {
+    "title": "Routine",
+    "subtitle": "Gestisci i tuoi piani di allenamento",
+    "createNew": "Nuova Routine",
+    "noRoutines": "Nessuna routine ancora",
+    "exercises": "esercizi",
+    "sets": "Serie",
+    "reps": "Reps",
+    "weight": "Peso",
+    "rest": "Riposo",
+    "notes": "Note",
+    "complete": "Fatto!",
+    "completeWorkout": "COMPLETA ALLENAMENTO!",
+    "progress": "Progresso",
+    "exerciseCompleted": "Esercizio completato!",
+    "keepGoing": "Continua così, stai spaccando.",
+    "workoutCompleted": "Allenamento Completato!",
+    "pointsGained": "+25 punti guadagnati. You better work, b*tch!",
+    "activePlan": "Piano Attivo"
+  },
+  "templates": {
+    "title": "Modelli Globali",
+    "subtitle": "Crea basi di esercizi e assegnale a più studenti.",
+    "createNew": "Nuovo Modello",
+    "noTemplates": "Nessun Modello",
+    "createFirst": "Crea il tuo primo modello per risparmiare tempo nell'assegnazione delle routine.",
+    "templateName": "Nome del Modello",
+    "templateNamePlaceholder": "Es: Routine Full Body Principiante",
+    "description": "Descrizione",
+    "descriptionPlaceholder": "Breve descrizione della routine...",
+    "exercises": "Esercizi",
+    "addExercise": "Aggiungi",
+    "exerciseName": "Nome esercizio",
+    "save": "Salva Modello",
+    "assign": "Assegna",
+    "assignTo": "Assegna:",
+    "selectStudents": "Seleziona gli studenti che riceveranno questa routine:",
+    "studentsSelected": "studente(i) selezionato(i)",
+    "createRoutines": "Crea Routine",
+    "assigned": "Routine assegnate!",
+    "assignedTo": "Modello assegnato a"
+  },
+  "students": {
+    "title": "I Miei Studenti",
+    "subtitle": "Gestisci e motiva i tuoi atleti.",
+    "noStudents": "Nessuno studente ancora",
+    "sendMessage": "Invia Messaggio",
+    "pts": "pts"
+  },
+  "chat": {
+    "title": "Messaggi",
+    "noConversation": "Seleziona un contatto per iniziare una conversazione",
+    "typeMessage": "Scrivi un messaggio...",
+    "send": "Invia",
+    "noContacts": "Nessun contatto disponibile"
+  },
+  "payments": {
+    "title": "Pagamenti e Addebiti",
+    "subtitle": "Gestisci i tuoi pagamenti e transazioni",
+    "subtitleTrainer": "Gestisci gli addebiti ai tuoi studenti",
+    "subtitleStudent": "Rivedi e paga i tuoi addebiti in sospeso",
+    "newPayment": "Nuovo Addebito",
+    "createPayment": "Crea Nuovo Addebito",
+    "amount": "Importo (USD)",
+    "method": "Metodo di Pagamento",
+    "period": "Tipo di Periodo",
+    "description": "Descrizione",
+    "descriptionPlaceholder": "Es: Lezione 15/01, Pacchetto Gennaio...",
+    "selectStudent": "Seleziona uno studente",
+    "student": "Studente",
+    "status": "Stato",
+    "pending": "In attesa",
+    "paid": "Pagato",
+    "cancelled": "Annullato",
+    "payNow": "Paga Ora",
+    "payWith": "Paga con",
+    "selectMethod": "Seleziona metodo di pagamento",
+    "history": "Storico Addebiti",
+    "myPayments": "I Miei Pagamenti",
+    "noPayments": "Non hai pagamenti in sospeso",
+    "noCharges": "Non hai ancora creato alcun addebito",
+    "availableMethods": "Metodi di Pagamento Disponibili",
+    "createSuccess": "Addebito creato con successo",
+    "paySuccess": "Pagamento registrato con successo",
+    "methods": {
+      "card": "Carta",
+      "venmo": "Venmo",
+      "zelle": "Zelle",
+      "cash": "Contanti"
+    },
+    "periods": {
+      "class": "Per Lezione",
+      "week": "Settimanale",
+      "month": "Mensile"
+    },
+    "copyUsername": "Copia utente",
+    "copied": "Copiato!",
+    "copySuccess": "Utente copiato negli appunti"
+  },
+  "profile": {
+    "title": "Il Mio Profilo",
+    "bio": "Biografia",
+    "goals": "Obiettivi",
+    "stats": "Statistiche",
+    "height": "Altezza",
+    "weight": "Peso",
+    "age": "Età",
+    "activityLevel": "Livello di Attività",
+    "updateProfile": "Aggiorna Profilo"
+  },
+  "onboarding": {
+    "welcome": "Benvenuto/a!",
+    "selectRole": "Qual è il tuo ruolo?",
+    "trainer": "Sono un Allenatore",
+    "trainerDesc": "Gestisci routine e studenti",
+    "student": "Sono uno Studente",
+    "studentDesc": "Segui i tuoi progressi e allenati"
+  }
+}

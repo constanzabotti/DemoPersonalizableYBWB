@@ -1,0 +1,68 @@
+{isTrainer && alerts && alerts.length > 0 && (
+  <Card className="bg-neutral-950 border-red-500/30 rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(239,68,68,0.05)]">
+    <CardHeader className="pb-3 border-b border-neutral-900 bg-neutral-900/20">
+      <CardTitle className="text-xs font-black uppercase tracking-widest flex items-center justify-between text-red-500">
+        <span className="flex items-center gap-2">
+          <AlertTriangle className="w-4 h-4 animate-bounce text-red-500" /> 
+          SISTEMA DE ALERTAS CRÍTICAS
+        </span>
+        <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-red-500 px-2 text-xs font-black text-white animate-pulse">
+          {alerts.length}
+        </span>
+      </CardTitle>
+    </CardHeader>
+    <CardContent className="py-5 bg-black/40">
+      <div className="space-y-3">
+        {[...alerts]
+          .sort((a, b) => {
+            const severity = (al: StudentAlert) =>
+              al.alertType === "high_stress" ? (al.stressLevel || 0) + 5 : 4;
+            return severity(b) - severity(a);
+          })
+          .map((alert, idx) => {
+            const isHighStress = alert.alertType === "high_stress";
+            const severityClass = isHighStress && (alert.stressLevel || 0) >= 4
+              ? "border-l-red-500 bg-red-950/20 border-red-900/40"
+              : isHighStress
+              ? "border-l-orange-500 bg-orange-950/20 border-orange-900/40"
+              : "border-l-yellow-500 bg-neutral-900 border-neutral-800";
+            return (
+              <div
+                key={idx}
+                className={`flex items-center justify-between p-4 rounded-2xl border border-l-4 ${severityClass} animate-in fade-in slide-in-from-left-3 duration-300`}
+                style={{ animationDelay: `${idx * 0.05}s` }}
+              >
+                <div className="flex items-center gap-4">
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${isHighStress ? "bg-orange-500/10" : "bg-yellow-500/10"}`}>
+                    {isHighStress ? (
+                      <Zap className="w-4 h-4 text-orange-400 stroke-[2.5]" />
+                    ) : (
+                      <Clock className="w-4 h-4 text-yellow-400 stroke-[2.5]" />
+                    )}
+                  </div>
+                  <div>
+                    <p className="font-bold text-sm text-neutral-100 tracking-tight">{alert.studentName}</p>
+                    <p className="text-xs text-neutral-400 font-medium mt-0.5">
+                      {isHighStress
+                        ? `Riesgo de sobrecarga: Estrés ${alert.stressLevel}/5`
+                        : "Inactividad extrema: +72 horas sin entrenar"}
+                    </p>
+                  </div>
+                </div>
+                <Link href={`/chat?contact=${alert.studentId}`}>
+                  <Button
+                    size="sm"
+                    className="h-10 px-4 rounded-xl neon-gradient text-black font-extrabold text-xs tracking-wider uppercase shadow-[0_0_15px_rgba(57,255,20,0.2)] hover:scale-105 transition-transform"
+                    data-testid={`button-dashboard-alert-${alert.studentId}`}
+                  >
+                    <MessageCircle className="w-3.5 h-3.5 mr-1.5 stroke-[2.5]" /> 
+                    {isHighStress ? "AJUSTAR CARGA" : "REVERTIR BAJA"}
+                  </Button>
+                </Link>
+              </div>
+            );
+          })}
+      </div>
+    </CardContent>
+  </Card>
+)}

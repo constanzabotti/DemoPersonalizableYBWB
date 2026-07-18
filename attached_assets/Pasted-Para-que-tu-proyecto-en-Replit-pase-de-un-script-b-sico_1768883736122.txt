@@ -1,0 +1,29 @@
+Para que tu proyecto en Replit pase de un script básico a una aplicación profesional y monetizable, necesitas una estructura técnica clara. He diseñado este Master Prompt que puedes usar con herramientas de IA (como el mismo Ghostwriter de Replit o ChatGPT) para que te genere el código necesario.
+Este prompt está diseñado para transformar tu lógica actual en una plataforma con experiencia de usuario (UX) única y módulos de pago.
+💡 El Master Prompt para tu App
+> "Actúa como un Desarrollador Full-Stack senior y experto en Product Management Fitness. Quiero escalar mi código actual de Python para una App de Personal Trainers y Alumnos. El objetivo es crear un MVP (Producto Mínimo Viable) que sea el 'Top 1' del mercado por su enfoque en la retención del alumno.
+> 1. Arquitectura de Datos (Persistencia):
+> Implementa una base de datos en SQLite que relacione:
+>  * User (Entrenador o Alumno).
+>  * Workouts (Ejercicios, series, repeticiones).
+>  * Daily_CheckIn (Nivel de sueño, estrés y energía del 1 al 10).
+> 2. La Función Única (Smart Feedback):
+> Crea una función llamada ajustar_intensidad() que analice el Daily_CheckIn. Si el alumno durmió menos de 6 horas o tiene estrés alto, la app debe sugerir automáticamente reducir las cargas del entrenamiento un 20% para evitar el burnout.
+> 3. Gamificación y Retención:
+> Diseña un sistema de 'Rachas de Equipo'. Si el alumno completa 3 días seguidos, el perfil del Entrenador recibe 'puntos de prestigio'. Genera una función que calcule este ranking.
+> 4. Módulo de Monetización:
+>  * Añade una lógica de 'Suscripción': Si el User_Type es Entrenador y tiene más de 3 alumnos, bloquear funciones a menos que is_premium sea True.
+>  * Crea un esquema para un 'Marketplace' donde un Entrenador pueda marcar una rutina como is_for_sale = True y ponerle un precio.
+> 5. Interfaz Visual (Frontend):
+> Utiliza Streamlit para crear una interfaz limpia y moderna con pestañas: [Dashboard, Mi Entrenamiento, Perfil de Pago, Ranking].
+> Por favor, genera el código organizado por módulos y asegúrate de que sea escalable para subirlo a Replit."
+> 
+🚀 Cómo implementar esto en tu proyecto
+Para que esto funcione y realmente te sirva para ganar dinero, te sugiero organizar tu Replit de la siguiente manera:
+ * database.py: Aquí irá toda la lógica de SQLite para guardar los progresos de tus clientes (esto es vital para que no pierdan su información).
+ * logic.py: Aquí pondrás la función de "Ajuste de Intensidad" (el valor único de tu app).
+ * app.py: Será tu archivo principal usando la librería Streamlit. Es la forma más rápida de convertir tu Python en una web que parece una app móvil.
+Diagrama del Flujo de Valor
+Para entender cómo el usuario interactúa con tu ventaja competitiva:
+¿Cuál es el siguiente paso?
+Si quieres, puedo generarte el código específico de la base de datos (SQLite) para que empieces a guardar la información de los alumnos de forma permanente, lo cual es el primer paso para poder cobrar por la app. ¿Te gustaría que hagamos eso?

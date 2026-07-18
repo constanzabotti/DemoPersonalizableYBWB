@@ -1,0 +1,244 @@
+import { useState, useEffect } from 'react';
+
+// ==========================================
+// 1. COMPONENTE DE CONTROL DE COMPARTIDO (SEGURO)
+// ==========================================
+const LINK_A_COMPARTIR = typeof window !== 'undefined' ? window.location.href : 'https://tu-app.replit.dev/';
+
+interface ShareProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const EliteShareManager: React.FC<ShareProps> = ({ isOpen, onClose }) => {
+  const [estadoCopiado, setEstadoCopiado] = useState<string | null>(null);
+
+  const ejecutarCompartidoNativo = async () => {
+    // Verificación ultra estricta para evitar que rompa el runtime de Vite
+    if (typeof navigator !== 'undefined' && navigator.share && navigator.canShare && navigator.canShare({ url: LINK_A_COMPARTIR })) {
+      try {
+        await navigator.share({
+          title: 'You Better Work B*tch! | Elite SaaS',
+          text: 'Mira esta plataforma de entrenamiento y gamificación premium.',
+          url: LINK_A_COMPARTIR,
+        });
+        onClose();
+        return;
+      } catch (error) {
+        if ((error as Error).name !== 'AbortError') {
+          console.log('Compartido nativo cancelado o no disponible.');
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      ejecutarCompartidoNativo();
+    }
+  }, [isOpen]);
+
+  const handleCopiarEnlace = () => {
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText(LINK_A_COMPARTIR).then(
+        () => {
+          setEstadoCopiado('¡Enlace Copiado! 🚀');
+          setTimeout(() => {
+            setEstadoCopiado(null);
+            onClose();
+          }, 1500);
+        },
+        (err) => {
+          setEstadoCopiado('Error al copiar link.');
+        }
+      );
+    }
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 z-[999]">
+      <div className="bg-[#0a0a0a] border border-[#39FF14]/30 rounded-2xl p-8 max-w-sm w-full text-center shadow-[0_0_50px_rgba(57,255,20,0.1)]">
+        <h3 className="text-xl font-bold text-white uppercase tracking-tight mb-2">
+          {estadoCopiado || 'Comparte la App'}
+        </h3>
+        <p className="text-gray-400 text-sm mb-6">
+          Copia el enlace único para enviarlo por redes o WhatsApp:
+        </p>
+        <button 
+          onClick={handleCopiarEnlace}
+          className="w-full py-3 bg-[#39FF14] text-black font-extrabold uppercase rounded-xl tracking-wider hover:bg-[#32e612] transition-all"
+        >
+          {estadoCopiado ? '¡COPIADO!' : 'COPIAR LINK'}
+        </button>
+        <button onClick={onClose} className="w-full mt-3 py-2 text-gray-500 font-bold uppercase text-xs hover:text-white">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  );
+};
+
+// ==========================================
+// 2. COMPONENTE PRINCIPAL DE LA LANDING PAGE
+// ==========================================
+export default function LandingPage() {
+  const [modalCompartirAbierto, setModalCompartirAbierto] = useState(false);
+
+  // Reemplaza con tu número real de WhatsApp (con código de país, ej: 549...)
+  const WHATSAPP_LINK_MARCA_BLANCA = "https://wa.me/5491112345678?text=Hola!%20Vi%20la%20demo%20de%20%C3%A9lite%20y%20quiero%20cotizar%20mi%20App%20de%20Marca%20Blanca";
+  const WHATSAPP_LINK_ACADEMIA = "https://wa.me/5491112345678?text=Hola!%20Me%20interesa%20el%20Convenio%20Institucional%20para%20mi%20Academia%20Fitness";
+
+  return (
+    <div className="min-h-screen bg-black text-white font-sans overflow-x-hidden">
+      
+      {/* SECCIÓN HERO (LA PORTADA PRINCIPAL DE TU CAPTURA) */}
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 flex flex-col items-center text-center px-4">
+        <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-2">
+          WORK <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#39FF14] to-green-400">B*TCH!</span>
+        </h1>
+        <p className="text-gray-400 text-lg max-w-md md:max-w-xl mx-auto mb-10 leading-relaxed">
+          The personal training platform with gamification. Earn points, unlock rewards, and transform your body.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md justify-center">
+          <a 
+            href={WHATSAPP_LINK_MARCA_BLANCA}
+            className="px-8 py-4 bg-[#39FF14] text-black font-black uppercase rounded-xl tracking-wider hover:bg-[#32e612] transition-all text-center"
+          >
+            GET STARTED ❯
+          </a>
+          <button 
+            onClick={() => setModalCompartirAbierto(true)}
+            className="px-8 py-4 bg-transparent border border-gray-800 text-white font-black uppercase rounded-xl tracking-wider hover:bg-gray-900 transition-all"
+          >
+            ▶ SHARE DASHBOARD
+          </button>
+        </div>
+      </section>
+
+      {/* 🔱 SECCIÓN 1: MARCA BLANCA PREMIUM (INFLUENCERS) */}
+      <section className="py-24 bg-[#030303] border-t border-gray-900 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="text-[#39FF14] text-xs font-black uppercase tracking-widest bg-[#39FF14]/10 px-3 py-1 rounded-full border border-[#39FF14]/20">
+                Creadores & Influencers
+              </span>
+              <h2 className="text-4xl font-black text-white tracking-tight uppercase mt-4 mb-6 leading-none">
+                Lanza tu propia <span className="text-gray-500">App Oficial</span>
+              </h2>
+              <p className="text-gray-400 text-base mb-8 leading-relaxed">
+                Deja de enviar PDFs sueltos. Convertimos nuestra plataforma de élite en tu software privado. Tu logo, tus colores, tu imperio.
+              </p>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-center space-x-3 text-sm text-gray-300">
+                  <span className="text-[#39FF14] font-bold">✓</span>
+                  <span><strong>100% Neto para ti:</strong> Cobros directos por Zelle, Venmo o tu banco.</span>
+                </li>
+                <li className="flex items-center space-x-3 text-sm text-gray-300">
+                  <span className="text-[#39FF14] font-bold">✓</span>
+                  <span><strong>Gamificación Avanzada:</strong> Alumnos enganchados sumando puntos por entrenar.</span>
+                </li>
+              </ul>
+              <a 
+                href={WHATSAPP_LINK_MARCA_BLANCA} 
+                target="_blank" 
+                rel="noreferrer"
+                className="inline-block px-8 py-4 bg-transparent border-2 border-[#39FF14] text-[#39FF14] font-black uppercase rounded-xl tracking-wider hover:bg-[#39FF14] hover:text-black transition-all text-sm"
+              >
+                Cotizar mi App de Marca Blanca
+              </a>
+            </div>
+            
+            {/* Simulación Visual de la Interfaz */}
+            <div className="bg-black border border-gray-800 rounded-2xl p-6 shadow-xl">
+              <p className="text-xs font-mono text-gray-500 uppercase mb-4">// App Accent Color Setup</p>
+              <div className="flex space-x-3 mb-6">
+                <div className="w-8 h-8 rounded-full bg-[#39FF14] border-2 border-white shadow-[0_0_15px_rgba(57,255,20,0.5)]" />
+                <div className="w-8 h-8 rounded-full bg-cyan-500 opacity-30" />
+                <div className="w-8 h-8 rounded-full bg-purple-500 opacity-30" />
+              </div>
+              <div className="bg-[#050505] p-4 rounded-xl border border-gray-900 text-center">
+                <p className="text-white font-bold text-xs uppercase tracking-widest">Interface Status: READY TO CLONE</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 🎓 SECCIÓN 2: ALIANZAS INSTITUCIONALES (ACADEMIAS) */}
+      <section className="py-24 bg-black border-t border-gray-900 text-center">
+        <div className="max-w-4xl mx-auto px-4">
+          <span className="text-gray-500 text-xs font-mono uppercase tracking-widest border border-gray-800 px-3 py-1 rounded-full">
+            B2B / Convenios
+          </span>
+          <h2 className="text-4xl font-black text-white uppercase tracking-tight mt-4 mb-4">
+            ¿Diriges una Escuela de Fitness?
+          </h2>
+          <p className="text-gray-400 text-sm max-w-xl mx-auto mb-8">
+            Ofrece a tus alumnos egresados la plataforma tecnológica definitiva para gestionar atletas gratis por 90 días. Eleva el valor de tus certificaciones.
+          </p>
+          <a 
+            href={WHATSAPP_LINK_ACADEMIA} 
+            target="_blank" 
+            rel="noreferrer"
+            className="inline-block px-6 py-3 bg-white text-black font-black uppercase text-xs tracking-wider rounded-xl hover:bg-gray-200 transition-colors"
+          >
+            Solicitar Convenio Institucional
+          </a>
+        </div>
+      </section>
+
+      {/* 📊 TABLA DE PRECIOS */}
+      <section className="py-24 bg-[#030303] border-t border-gray-900 text-center">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-3xl font-black text-white uppercase mb-12">Planes Claros. Escala sin Límites.</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+            
+            {/* Pack 1 */}
+            <div className="bg-black border border-gray-900 rounded-2xl p-6 flex flex-col justify-between">
+              <div>
+                <h3 className="text-gray-500 text-xs font-mono uppercase">Starter / Academia</h3>
+                <div className="text-2xl font-black text-white mt-1">$0 <span className="text-xs text-gray-600 font-normal">/ siempre</span></div>
+                <div className="w-full h-[1px] bg-gray-900 my-4" />
+                <p className="text-gray-400 text-xs">✓ Hasta 3 Alumnos Activos</p>
+              </div>
+              <a href={WHATSAPP_LINK_MARCA_BLANCA} className="w-full mt-6 py-2 bg-gray-900 text-white font-bold text-xs uppercase rounded-xl text-center block">Comenzar</a>
+            </div>
+
+            {/* Pack 2 - Destacado */}
+            <div className="bg-black border-2 border-[#39FF14] rounded-2xl p-6 flex flex-col justify-between relative shadow-[0_0_30px_rgba(57,255,20,0.05)]">
+              <div>
+                <h3 className="text-[#39FF14] text-xs font-mono uppercase">Pro Coach</h3>
+                <div className="text-2xl font-black text-white mt-1">$19 <span className="text-xs text-gray-600 font-normal">/ mes</span></div>
+                <div className="w-full h-[1px] bg-[#39FF14]/10 my-4" />
+                <p className="text-gray-200 text-xs">✓ Hasta 15 Alumnos Activos</p>
+                <p className="text-gray-200 text-xs mt-2">✓ Alertas de Fatiga y Estrés</p>
+              </div>
+              <a href={WHATSAPP_LINK_MARCA_BLANCA} className="w-full mt-6 py-2 bg-[#39FF14] text-black font-black text-xs uppercase rounded-xl text-center block">Adquirir Pro</a>
+            </div>
+
+            {/* Pack 3 */}
+            <div className="bg-black border border-gray-900 rounded-2xl p-6 flex flex-col justify-between">
+              <div>
+                <h3 className="text-gray-500 text-xs font-mono uppercase">Elite Studio</h3>
+                <div className="text-2xl font-black text-white mt-1">$49 <span className="text-xs text-gray-600 font-normal">/ mes</span></div>
+                <div className="w-full h-[1px] bg-gray-900 my-4" />
+                <p className="text-gray-400 text-xs">✓ Alumnos Ilimitados</p>
+              </div>
+              <a href={WHATSAPP_LINK_MARCA_BLANCA} className="w-full mt-6 py-2 bg-gray-900 text-white font-bold text-xs uppercase rounded-xl text-center block">Hacerse Elite</a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* EL INYECTOR DEL MODAL SEGURO */}
+      <EliteShareManager isOpen={modalCompartirAbierto} onClose={() => setModalCompartirAbierto(false)} />
+
+    </div>
+  );
+}

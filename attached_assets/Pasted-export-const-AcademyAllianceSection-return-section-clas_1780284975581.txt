@@ -1,0 +1,51 @@
+export const AcademyAllianceSection = () => {
+  return (
+    <section className="py-24 bg-[#030303] border-t border-gray-950 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        
+        <div className="max-w-3xl mx-auto mb-16">
+          <span className="text-gray-500 text-xs font-mono uppercase tracking-widest border border-gray-800 px-3 py-1 rounded-full">
+            B2B / Programas Institucionales
+          </span>
+          <h2 className="text-4xl font-black text-white tracking-tight uppercase mt-4 mb-4">
+            ¿Diriges una Escuela o Federación de Fitness?
+          </h2>
+          <p className="text-gray-400 text-base leading-relaxed">
+            Aumenta el valor percibido de tus certificaciones sin costo alguno. Ofrece a tus alumnos graduados la plataforma tecnológica definitiva para que lancen su negocio digital desde el día uno.
+          </p>
+        </div>
+
+        {/* Las 3 ventajas competitivas para la Academia */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mb-12">
+          {[
+            { title: "Diferenciación Brutal", desc: "Anuncia en tus folletos: 'Certifícate con nosotros y recibe tu propio software de gestión de atletas premium completamente gratis por 90 días'." },
+            { title: "Casos de Éxito Reales", desc: "Tus entrenadores egresados retendrán más alumnos gracias a nuestro sistema de gamificación, elevando el prestigio y reputación de tu escuela." },
+            { title: "Integración Automatizada", desc: "Te entregamos un lote de códigos de acceso únicos para tus alumnos al momento de emitir sus diplomas de graduación. Cero fricción." }
+          ].map((box, i) => (
+            <div key={i} className="bg-black border border-gray-900 rounded-2xl p-6 hover:border-gray-850 transition-colors">
+              <div className="w-8 h-8 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-white font-mono text-sm font-bold mb-4">
+                0{i+1}
+              </div>
+              <h3 className="text-white font-black text-lg uppercase tracking-wide mb-2">{box.title}</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">{box.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Botón de Acción Especial para Directores */}
+        <div className="inline-block bg-black border border-gray-900 rounded-2xl p-6 max-w-xl mx-auto">
+          <p className="text-gray-400 text-sm mb-4 font-medium">
+            ¿Quieres auditar la plataforma antes de ofrecer el beneficio?
+          </p>
+          <button 
+            onClick={() => window.open('mailto:tu-mail@SaaS.com?subject=Propuesta de Alianza Academia', '_blank')}
+            className="w-full sm:w-auto px-6 py-3 bg-white text-black font-black uppercase text-xs tracking-wider rounded-xl hover:bg-gray-200 transition-colors"
+          >
+            Solicitar Convenio Institucional
+          </button>
+        </div>
+
+      </div>
+    </section>
+  );
+};

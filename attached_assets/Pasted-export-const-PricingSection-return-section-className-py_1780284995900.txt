@@ -1,0 +1,78 @@
+export const PricingSection = () => {
+  return (
+    <section className="py-24 bg-black border-t border-gray-900 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        
+        <div className="max-w-2xl mx-auto mb-16">
+          <h2 className="text-4xl font-black text-white uppercase tracking-tight">
+            Planes Claros. <span className="text-[#39FF14]">Escala sin Límites.</span>
+          </h2>
+          <p className="text-gray-500 text-sm mt-2">
+            Comienza gratis con tus primeros clientes. Paga solo cuando tu negocio crezca de verdad.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-5xl mx-auto">
+          
+          {/* Plan Gratis / Academias */}
+          <div className="bg-[#030303] border border-gray-900 rounded-2xl p-8 flex flex-col justify-between text-left">
+            <div>
+              <h3 className="text-gray-400 text-xs font-mono uppercase tracking-widest">Starter / Academia</h3>
+              <div className="text-3xl font-black text-white mt-2">$0 <span className="text-xs text-gray-600 font-normal">/ para siempre</span></div>
+              <p className="text-gray-500 text-xs mt-3 leading-relaxed">Perfecto para egresados o entrenadores que validan sus primeros atletas.</p>
+              <div className="w-full h-[1px] bg-gray-900 my-6" />
+              <ul className="space-y-3 text-sm text-gray-400">
+                <li className="flex items-center space-x-2"><span className="text-[#39FF14]">✓</span> <span>Hasta <strong>3 Alumnos Activos</strong></span></li>
+                <li className="flex items-center space-x-2"><span className="text-[#39FF14]">✓</span> <span>Gamificación base</span></li>
+                <li className="flex items-center space-x-2"><span className="text-[#39FF14]">✓</span> <span>Cobros integrados (Zelle/Venmo)</span></li>
+              </ul>
+            </div>
+            <button className="w-full mt-8 py-3 bg-gray-900 text-white font-bold uppercase text-xs rounded-xl hover:bg-gray-850 transition-colors">
+              Comenzar Gratis
+            </button>
+          </div>
+
+          {/* Plan Pro - El Destacado */}
+          <div className="bg-[#050505] border-2 border-[#39FF14] rounded-2xl p-8 flex flex-col justify-between text-left relative shadow-[0_0_40px_rgba(57,255,20,0.05)]">
+            <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-[#39FF14] text-black text-[9px] font-black uppercase rounded-full tracking-wider">
+              RECOMENDADO ELITE
+            </span>
+            <div>
+              <h3 className="text-[#39FF14] text-xs font-mono uppercase tracking-widest">Pro Coach</h3>
+              <div className="text-3xl font-black text-white mt-2">$19 <span className="text-xs text-gray-600 font-normal">/ mes</span></div>
+              <p className="text-gray-400 text-xs mt-3 leading-relaxed">Para entrenadores independientes en fase de expansión activa.</p>
+              <div className="w-full h-[1px] bg-[#39FF14]/10 my-6" />
+              <ul className="space-y-3 text-sm text-gray-200">
+                <li className="flex items-center space-x-2"><span className="text-[#39FF14]">✓</span> <span>Hasta <strong>15 Alumnos Activos</strong></span></li>
+                <li className="flex items-center space-x-2"><span className="text-[#39FF14]">✓</span> <span>Alertas de Fatiga y Estrés Avanzadas</span></li>
+                <li className="flex items-center space-x-2"><span className="text-[#39FF14]">✓</span> <span>Catálogo de Premios Ilimitado</span></li>
+              </ul>
+            </div>
+            <button className="w-full mt-8 py-3 bg-[#39FF14] text-black font-black uppercase text-xs rounded-xl hover:bg-[#32e612] transition-colors shadow-[0_0_20px_rgba(57,255,20,0.2)]">
+              Adquirir Plan Pro
+            </button>
+          </div>
+
+          {/* Plan Elite */}
+          <div className="bg-[#030303] border border-gray-900 rounded-2xl p-8 flex flex-col justify-between text-left">
+            <div>
+              <h3 className="text-gray-400 text-xs font-mono uppercase tracking-widest">Elite Studio</h3>
+              <div className="text-3xl font-black text-white mt-2">$49 <span className="text-xs text-gray-600 font-normal">/ mes</span></div>
+              <p className="text-gray-500 text-xs mt-3 leading-relaxed">Para equipos de entrenadores o centros de alto rendimiento.</p>
+              <div className="w-full h-[1px] bg-gray-900 my-6" />
+              <ul className="space-y-3 text-sm text-gray-400">
+                <li className="flex items-center space-x-2"><span className="text-[#39FF14]">✓</span> <span><strong>Alumnos Ilimitados</strong></span></li>
+                <li className="flex items-center space-x-2"><span className="text-[#39FF14]">✓</span> <span>Soporte Técnico VIP prioritario</span></li>
+                <li className="flex items-center space-x-2"><span className="text-[#39FF14]">✓</span> <span>Métricas comerciales avanzadas</span></li>
+              </ul>
+            </div>
+            <button className="w-full mt-8 py-3 bg-gray-900 text-white font-bold uppercase text-xs rounded-xl hover:bg-gray-850 transition-colors">
+              Hacerse Elite
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+};
